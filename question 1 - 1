@@ -1,0 +1,68 @@
+import random
+import numpy as np
+import scipy as stats
+card_outcomes = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+i=0
+while i < 1000:
+    i = i + 1
+    for x in range(1):
+        x = random.randint(1, 13)
+# displays the cards and later their added value
+#        if x == 11:
+#            print("first card    Jack")
+#        if x == 12:
+#            print("first card    Queen")
+#        if x == 13:
+#            print("first card    King")
+#        if x == 1:
+#            print("first card    Ace")
+#        if x > 1 and x < 11:
+#           print("first card      " + str(x))
+        if x > 10:
+            x = 10
+    for y in range(1):
+        y = random.randint(1,13)
+#        if y == 11:
+#            print("second card   Jack")
+#        if y == 12:
+#            print("second card   Queen")
+#        if y == 13:
+#            print("second card   King")
+#        if y == 1:
+#            print("second card   Ace")
+#        if y > 1 and y < 11:
+#            print("second card     " + str(y))
+        if y > 10:
+            y = 10
+    z = x + y
+#    print(str(z)  + " added value")
+#loops through values to test z, the "added value"
+    a = 2
+    while a < 21:
+        if (z == a):
+            card_outcomes[a-2] +=1
+            #correction for the first outcome value of array is 2
+        a = a + 1
+print(card_outcomes[0:19])
+print("median = ",end=' ')
+n = np.median(card_outcomes[0:19])
+#print(n)
+d=0
+while d <18:
+    d = d + 1
+    e = np.median(card_outcomes[d])
+    if e == n:
+        print(int(d) + 1)
+print('median value = ',end = ' ')
+print(np.median(card_outcomes[0:19]))
+print("mode = ",end=' ')
+#print(max(card_outcomes))
+m = max(card_outcomes)
+#print(m)
+b=0
+while b <18:
+    b = b + 1
+    c = card_outcomes[b]
+    if c == m:
+        print(int(b) + 1)
+
