@@ -1,0 +1,25 @@
+import random as rand
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib import colors
+from matplotlib.ticker import PercentFormatter
+N_points = 10000
+n_bins = 20
+def function():
+    numbers=[]
+    #numbers = [0,0,0,0,0,0,0,0,0,0]
+    for i in range(1000):
+        x = rand.randint(1, 10)
+        numbers.append(x)
+        #numbers[x-1] += 1
+    return numbers
+
+y = function()
+
+fig, axs = plt.subplots(1, 2, sharey=False, tight_layout=True)
+
+# We can set the number of bins with the `bins` kwarg
+axs[0].hist(y, bins=n_bins)
+axs[0].hist(y, bins=n_bins)
+
+plt.show()
